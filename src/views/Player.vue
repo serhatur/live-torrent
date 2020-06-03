@@ -239,8 +239,8 @@ export default {
       const files = e.target.files;
       if (!files.length) return;
       const file = files[0];
-      if (file.type !== "application/x-subrip" && file.type !== "text/vtt")
-        return alert("Only .vtt and .srt subtitles are supported");
+      // if (file.type !== "application/x-subrip" && file.type !== "text/vtt")
+      //   return alert("Only .vtt and .srt subtitles are supported");
       if (window.File && window.FileReader && window.FileList && window.Blob) {
         const reader = new FileReader();
         reader.onload = data => {
