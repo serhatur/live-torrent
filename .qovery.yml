@@ -1,0 +1,11 @@
+---
+application:
+  name: "live-torrent"
+  project: "surmovie"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-live-torrent"
+  routes:
+  - application_name: "live-torrent"
+    paths:
+    - "/*"
