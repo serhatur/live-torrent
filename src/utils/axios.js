@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backend = axios.create({
-  baseURL: "/api"
+  baseURL: "http://sur.eu-4.evennode.com/api"
 });
 export default backend;
 
