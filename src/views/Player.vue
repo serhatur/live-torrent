@@ -20,7 +20,7 @@
             icon
             tag="a"
             target="_blank"
-            :href="`/api/torrent/serve/${torrentInfo.infoHash}/${file.path.substr(1) || file.index}`"
+            :href="`http://sur.eu-4.evennode.com/api/torrent/serve/${torrentInfo.infoHash}/${file.path.substr(1) || file.index}`"
             :download="file.name"
           >
             <v-icon color="green darken-2">fas fa-download</v-icon>
@@ -72,7 +72,7 @@
           <video
             id="player"
             ref="player"
-            :src="`/api/torrent/serve/${torrentInfo.infoHash}/${file.path.substr(1) || file.index}`"
+            :src="`http://sur.eu-4.evennode.com/api/torrent/serve/${torrentInfo.infoHash}/${file.path.substr(1) || file.index}`"
             controls
           >
             <track
@@ -239,8 +239,8 @@ export default {
       const files = e.target.files;
       if (!files.length) return;
       const file = files[0];
-      // if (file.type !== "application/x-subrip" && file.type !== "text/vtt")
-      //   return alert("Only .vtt and .srt subtitles are supported");
+      if (file.type !== "application/x-subrip" && file.type !== "text/vtt")
+        return alert("Only .vtt and .srt subtitles are supported");
       if (window.File && window.FileReader && window.FileList && window.Blob) {
         const reader = new FileReader();
         reader.onload = data => {
@@ -337,7 +337,7 @@ export default {
         }
         // end
       } catch (err) {
-        console.error(err);
+        //console.error(err);
       }
     },
     refresh() {
@@ -414,7 +414,7 @@ export default {
         this.captions = captions.filter(a => a); // remove broken captions
       })
       .catch(err => {
-        console.error(err);
+        console.log(err);
         this.captionsError = true;
       })
       .finally(() => (this.loading = false));
